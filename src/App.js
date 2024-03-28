@@ -1,7 +1,7 @@
-import Footer from "./components/Footer.js";
-import Header from "./components/Header.js";
-import Product from "./components/Products.js";
-import Main from "./components/Main.js"
+import Footer from "./components/Footer/Footer.js";
+import Header from "./components/Header/Header.js";
+import Product from "./components/Products/Products.js";
+import Main from "./components/Main/Main.js"
 // import './App.css';
 function App() {
   return (
