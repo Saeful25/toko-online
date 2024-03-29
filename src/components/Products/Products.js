@@ -1,9 +1,9 @@
 import { useState } from "react"
 import Product from "../Product/Product";
-import Main from "../Main/Main";
 import "./Products.css"
+import AddProductForm from "../AddProductForm/AddProductForm";
 const Products = () => {
-    const datas = [
+    const [datas, setDatas] = useState([
         {
             nama:"Kursi Gaming Fantech ",
             harga:2.350,
@@ -23,7 +23,7 @@ const Products = () => {
             message:"Beli Sekarang ?",
         },
         {
-            nama:"Gamepad single Usb M-Tech",
+            nama:"Gamepad single Usb",
             harga:230,
             gambar:"https://images.tokopedia.net/img/cache/200-square/VqbcmM/2023/6/17/15a87b63-aaad-4c96-a419-945fcdcbba49.jpg",
             message:"Beli Sekarang ?",
@@ -40,7 +40,25 @@ const Products = () => {
             gambar:"https://images.tokopedia.net/img/cache/200-square/VqbcmM/2024/2/21/76b45976-e772-4524-a37c-e2652fc0bdc5.png",
             message:"Beli Sekarang ?",
         },
-    ]
+    ]);
+    const handleClick = () => {
+        const product = {
+          nama: "Asus Vivobook 14",
+          harga: 2.50,
+          gambar: "https://picsum.photos/200/300",
+          message:"Beli Sekarang ?",
+        };
+        // array baru (product)
+        setDatas([...datas, product]);
+      };
+    const addProduct = (product) => {
+        setDatas([...datas,product]);
+    };
+    
+      console.log(datas);
+      
+
+
     return(
         <div>
             <h1>Bayar di tempat</h1>
@@ -54,9 +72,11 @@ const Products = () => {
               message={data.message}
             />
           );
-            })
-        }
+        })
+    }
+    <button className="btn" onClick={handleClick}>Add Product</button>
             </div>
+            <AddProductForm onAddProduct={addProduct}/>
         </div>
     );
 }
